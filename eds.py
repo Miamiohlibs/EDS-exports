@@ -1,13 +1,14 @@
 from ftplib import FTP
 
+ftp = FTP('')
+ftp.login(user='', passwd='')
 
-ftp = FTP('host')
-ftp.login(user='user', passwd='pass')
-ftp.cwd('/full')
 def upload():
+    ftp.cwd('/full')
     filename = 'MU EDS A.out'
     try:
         ftp.storbinary('STOR '+filename, open(filename, 'rb'), 1024)
+    ftp.cwd('../update')
     filename = 'MU EDS B.out'
     try:
         ftp.storbinary('STOR '+filename, open(filename, 'rb'), 1024)
